@@ -1,0 +1,20 @@
+[images]
+  remote_images = [
+    "https://same-assets.com/**",
+    "https://t.me/**"
+  ]
+
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+[dev]
+  command = "bun run dev"
+  framework = "vite"
+  port = 5173
+  targetPort = 5173
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
