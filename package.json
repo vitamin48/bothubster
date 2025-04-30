@@ -3,14 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/vitamin48/bothubster",
+  "homepage": "https://vitamin48.github.io/bothubster",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "lint": "biome lint --apply-unsafe ./src && tsc --noEmit",
     "preview": "vite preview --host 0.0.0.0",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^12.6.3",
