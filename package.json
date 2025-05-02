@@ -6,7 +6,7 @@
   "homepage": "https://www.bothubster.ru",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "build": "vite build && cp dist/index.html dist/404.html",
     "lint": "biome lint --apply-unsafe ./src && tsc --noEmit",
     "preview": "vite preview --host 0.0.0.0",
     "predeploy": "npm run build",
