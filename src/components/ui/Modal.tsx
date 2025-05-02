@@ -1,15 +1,16 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import girlPhone from "../../images/girl_phone_tlg.webp";
+import girlPhone from '../../images/girl_phone_tlg.webp';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
   title?: string;
+  customClassName?: string; // ✅ добавлено
 }
 
-export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
+export const Modal = ({ isOpen, onClose, children, title, customClassName }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative z-50 w-full max-w-md max-h-[90vh] overflow-y-auto rounded-xl bg-white p-6 shadow-xl"
+            className={`relative z-50 w-full max-h-[90vh] overflow-y-auto rounded-xl bg-white p-6 shadow-xl ${customClassName || 'max-w-md'}`} // ✅ кастомная ширина, если передана
           >
             {title && (
               <div className="mb-4 text-center">
