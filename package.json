@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://www.bothubster.ru",
-  "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build && cp dist/index.html dist/404.html",
-    "lint": "biome lint --apply-unsafe ./src && tsc --noEmit",
-    "preview": "vite preview --host 0.0.0.0",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
+"scripts": {
+  "dev": "vite --host 0.0.0.0",
+  "build": "vite build && npm run copy404",
+  "copy404": "copyfiles -f dist/index.html dist/404.html",
+  "preview": "vite preview --host 0.0.0.0",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "framer-motion": "^12.6.3",
     "gh-pages": "^6.3.0",
@@ -30,6 +30,7 @@
     "@typescript-eslint/parser": "^8.20.0",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "copyfiles": "^2.4.1",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^3.7.0",
