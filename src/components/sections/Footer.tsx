@@ -1,17 +1,10 @@
 import { useState } from 'react';
 import { FaTelegramPlane, FaEnvelope, FaFileAlt, FaShieldAlt } from 'react-icons/fa';
 import { MdOutlineCookie } from 'react-icons/md';
-import PrivacyModal from '../ui/PrivacyModal';
 import { Modal } from '../ui/Modal';
-import UserAgreementModal from '../ui/UserAgreementModal'; // Импортируем компонент модального окна для Пользовательского соглашения
-import CookiePolicyModal from '../ui/CookiePolicyModal'; // Импортируем компонент модального окна для Политики использования cookie
 
 export const Footer = () => {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
-  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false); // Для модального окна политики конфиденциальности
-  const [isUserAgreementModalOpen, setIsUserAgreementModalOpen] = useState(false); // Для модального окна пользовательского соглашения
-  const [isCookiePolicyModalOpen, setIsCookiePolicyModalOpen] = useState(false); // Для модального окна политики использования cookie
-
   const currentYear = new Date().getFullYear();
 
   return (
@@ -61,31 +54,31 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setIsPrivacyModalOpen(true)} // Открытие модального окна с политикой конфиденциальности
+                  <a
+                    href="/privacy"
                     className="text-blue-100 transition-colors hover:text-white"
                   >
                     <FaShieldAlt className="mb-0.5 mr-1 inline-block" />
                     Политика конфиденциальности
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setIsUserAgreementModalOpen(true)} // Открытие модального окна с пользовательским соглашением
+                  <a
+                    href="/terms"
                     className="text-blue-100 transition-colors hover:text-white"
                   >
                     <FaFileAlt className="mb-0.5 mr-1 inline-block" />
                     Пользовательское соглашение
-                  </button>
+                  </a>
                 </li>
                 <li>
-                  <button
-                    onClick={() => setIsCookiePolicyModalOpen(true)} // Открытие модального окна с политикой использования cookie
+                  <a
+                    href="/cookie"
                     className="text-blue-100 transition-colors hover:text-white"
                   >
                     <MdOutlineCookie className="mb-0.5 mr-1 inline-block" />
                     Политика использования cookie
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -131,7 +124,9 @@ export const Footer = () => {
         title="Готовы запустить бота?"
       >
         <div className="text-center">
-          <p className="mb-4 text-gray-600">Пишите в Telegram — обсудим задачу и предложим решение под ваш бизнес. Это легко!</p>
+          <p className="mb-4 text-gray-600">
+            Пишите в Telegram — обсудим задачу и предложим решение под ваш бизнес. Это легко!
+          </p>
           <a
             href="https://t.me/b2b_max"
             target="_blank"
@@ -142,24 +137,6 @@ export const Footer = () => {
           </a>
         </div>
       </Modal>
-
-      {/* Privacy Modal */}
-      <PrivacyModal
-        isOpen={isPrivacyModalOpen}
-        onClose={() => setIsPrivacyModalOpen(false)} // Закрытие модального окна
-      />
-
-      {/* User Agreement Modal */}
-      <UserAgreementModal
-        isOpen={isUserAgreementModalOpen}
-        onClose={() => setIsUserAgreementModalOpen(false)} // Закрытие модального окна
-      />
-
-      {/* Cookie Policy Modal */}
-      <CookiePolicyModal
-        isOpen={isCookiePolicyModalOpen}
-        onClose={() => setIsCookiePolicyModalOpen(false)} // Закрытие модального окна
-      />
     </footer>
   );
 };
