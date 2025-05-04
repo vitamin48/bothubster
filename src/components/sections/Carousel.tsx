@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import robotRocket from "../../images/robot_rocket.webp";
 import robotMail from "../../images/robot_mail.webp";
 import robotGirlBoy from "../../images/girl_robot_boy.webp";
 import robotGirlConstr from "../../images/robot_girl_constr.webp";
+import robotRocket from "../../images/robot_rocket.webp"; // если используется где-то ещё
 import girlRobotTlg from "../../images/girl_robot_tlg.webp";
+import girlRobotTrig from "../../images/girl_robot_trig.webp";
 
 const slides = [
   {
@@ -32,11 +33,18 @@ const slides = [
       "Достаточно добавить менеджеров в админ-группу в Telegram, чтобы разделить задачи.",
     image: robotGirlBoy,
   },
+  {
+    title: "Помогает принимать оперативные решения",
+    content:
+      "Анализирует и отправляет Вам триггерные сообщения о превышении установленного Вами уровня доли рекламных расходов, о минимальных остатках и прочее для принятия решений до того, как это стало приносить убытки.",
+    image: girlRobotTrig,
+  },
 ];
 
 export const Carousel = () => {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoAdvanceEnabled = useRef(true);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
@@ -46,14 +54,19 @@ export const Carousel = () => {
     }
   };
 
+  const stopAutoAdvance = () => {
+    autoAdvanceEnabled.current = false;
+    clearAutoAdvance();
+  };
+
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % slides.length);
-    clearAutoAdvance(); // Останавливаем автоперелистывание
+    stopAutoAdvance();
   };
 
   const handlePrev = () => {
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
-    clearAutoAdvance(); // Останавливаем автоперелистывание
+    stopAutoAdvance();
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -70,22 +83,21 @@ export const Carousel = () => {
 
   const handleIndicatorClick = (i: number) => {
     setIndex(i);
-    clearAutoAdvance(); // Останавливаем автоперелистывание
+    stopAutoAdvance();
   };
 
   useEffect(() => {
+    if (!autoAdvanceEnabled.current) return;
+
     timeoutRef.current = setTimeout(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 10000); // 10 секунд
 
     return () => clearTimeout(timeoutRef.current!);
   }, [index]);
 
   return (
-    <section
-      id="advantages"
-      className="section bg-[var(--bg-secondary)] py-12"
-    >
+    <section id="advantages" className="section bg-[var(--bg-secondary)] py-12">
       <div className="container">
         <h2 className="mb-8 text-center text-3xl font-bold md:text-4xl">
           Преимущества
@@ -106,7 +118,6 @@ export const Carousel = () => {
                 transition={{ duration: 0.5 }}
                 className="flex w-full flex-col items-center md:flex-row"
               >
-                {/* Картинка */}
                 <div className="mb-6 w-full max-w-xs flex-shrink-0 md:mb-0 md:mr-10 md:w-1/3">
                   <img
                     src={slides[index].image}
@@ -115,7 +126,6 @@ export const Carousel = () => {
                   />
                 </div>
 
-                {/* Текст */}
                 <div className="w-full text-center md:w-2/3 md:text-left">
                   <h3 className="mb-4 text-xl font-bold text-[var(--primary-color)] md:text-2xl">
                     {slides[index].title}
@@ -126,7 +136,6 @@ export const Carousel = () => {
             </AnimatePresence>
           </div>
 
-          {/* Стрелки и индикаторы в одной строке */}
           <div className="mt-4 flex items-center justify-center space-x-4">
             <button
               onClick={handlePrev}
@@ -136,12 +145,11 @@ export const Carousel = () => {
               <FaChevronLeft />
             </button>
 
-            {/* Индикаторы */}
             <div className="flex space-x-2">
               {slides.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => handleIndicatorClick(i)} // Останавливаем автоперелистывание
+                  onClick={() => handleIndicatorClick(i)}
                   className={`h-2 w-6 rounded-full transition-all ${
                     i === index ? "bg-[var(--primary-color)]" : "bg-gray-300"
                   }`}

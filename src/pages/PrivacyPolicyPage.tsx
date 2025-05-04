@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Header } from '../components/sections/Header';
 import { Footer } from '../components/sections/Footer';
 import { Modal } from '../components/ui/Modal';
+import privacyIMG from '../images/girl_robot_privacy.webp';
 
 export const PrivacyPolicyPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +13,17 @@ export const PrivacyPolicyPage = () => {
 
       <main className="flex-grow bg-white py-12">
         <div className="container mx-auto max-w-3xl px-4 md:px-6 lg:px-8 bg-white rounded-xl shadow-md border border-gray-200">
-          <h1 className="mb-6 mt-8 text-3xl font-bold text-[var(--primary-color)]">
+          
+          {/* Картинка над заголовком */}
+          <div className="mt-8 mb-4 flex justify-center">
+            <img
+              src={privacyIMG}
+              alt="Девушка-робот конфиденциальность"
+              className="w-1/2 max-w-xs h-auto rounded-lg shadow-sm"
+            />
+          </div>
+
+          <h1 className="mb-6 text-3xl font-bold text-[var(--primary-color)] text-center">
             Политика конфиденциальности
           </h1>
 
