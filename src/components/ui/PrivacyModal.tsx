@@ -69,7 +69,7 @@ export const PrivacyModal = ({ isOpen, onClose }: PrivacyModalProps) => {
           <ul className="list-disc list-inside ml-4">
             <li>запросить доступ к своим персональным данным;</li>
             <li>потребовать уточнения, блокировки или удаления данных;</li>
-            <li>отозвать согласие на обработку, направив запрос на email info@telegrambot.com.</li>
+            <li>отозвать согласие на обработку, направив запрос на email bothubster@gmail.com.</li>
           </ul>
         </p>
 
@@ -80,7 +80,7 @@ export const PrivacyModal = ({ isOpen, onClose }: PrivacyModalProps) => {
         <p>
           8.1. По вопросам обработки персональных данных обращайтесь:
           <br />
-          Email: info@telegrambot.com
+          Email: bothubster@gmail.com
           <br />
           Телеграм: @b2b_max
         </p>

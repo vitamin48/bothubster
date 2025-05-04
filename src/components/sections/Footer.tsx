@@ -100,10 +100,10 @@ export const Footer = () => {
                   <FaTelegramPlane className="mr-2" /> @b2b_max
                 </a>
                 <a
-                  href="mailto:info@telegrambot.com"
+                  href="mailto:bothubster@gmail.com"
                   className="flex items-center text-blue-100 transition-colors hover:text-white"
                 >
-                  <FaEnvelope className="mr-2" /> info@telegrambot.com
+                  <FaEnvelope className="mr-2" /> bothubster@gmail.com
                 </a>
               </div>
 
