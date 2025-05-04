@@ -30,11 +30,39 @@ export const CookiePage = () => {
           <p className="mb-4 text-lg text-gray-800">
             Мы используем cookie-файлы для улучшения работы сайта, персонализации контента, а также для анализа трафика. Cookie помогают нам понять, какие разделы сайта наиболее интересны пользователям, и повысить удобство взаимодействия.
           </p>
+
+          <h2 className="mb-2 mt-6 text-2xl font-semibold text-[var(--primary-color)]">1. Для чего мы используем cookies?</h2>
           <p className="mb-4 text-lg text-gray-800">
-            Вы можете отключить сохранение cookie в настройках вашего браузера. Однако в этом случае некоторые функции сайта могут быть недоступны.
+            Мы используем следующие типы cookies:
+            <ul className="list-disc list-inside ml-4">
+              <li><strong>Необходимые cookies</strong> — для функционирования сайта.</li>
+              <li><strong>Аналитические cookies</strong> — для анализа посещаемости и улучшения сайта.</li>
+              <li><strong>Функциональные cookies</strong> — для запоминания ваших предпочтений.</li>
+              <li><strong>Рекламные cookies</strong> — для показа релевантной рекламы.</li>
+            </ul>
           </p>
-          <p className="mb-8 text-lg text-gray-800">
-            Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой использования cookie.
+
+          <h2 className="mb-2 mt-6 text-2xl font-semibold text-[var(--primary-color)]">2. Управление cookies</h2>
+          <p className="mb-4 text-lg text-gray-800">
+            Вы можете управлять cookies в настройках вашего браузера. Если вы не хотите, чтобы cookies сохранялись, вы можете отключить их, но это может повлиять на работу некоторых функций сайта.
+          </p>
+
+          <h2 className="mb-2 mt-6 text-2xl font-semibold text-[var(--primary-color)]">3. Согласие на использование cookies</h2>
+          <p className="mb-4 text-lg text-gray-800">
+            Используя наш сайт, вы соглашаетесь на использование cookies. Если вы не согласны, вы можете изменить настройки cookies или покинуть сайт.
+          </p>
+
+          <h2 className="mb-2 mt-6 text-2xl font-semibold text-[var(--primary-color)]">4. Изменения в Политике</h2>
+          <p className="mb-4 text-lg text-gray-800">
+            Мы можем обновлять Политику использования cookies. Все изменения будут опубликованы на этой странице.
+          </p>
+
+          <h2 className="mb-2 mt-6 text-2xl font-semibold text-[var(--primary-color)]">5. Контакты</h2>
+          <p className="mb-4 text-lg text-gray-800">
+            Если у вас есть вопросы, вы можете связаться с нами по email: bothubster@gmail.com или через Телеграм: @b2b_max.
+          </p>
+          <p className="mb-4 text-lg text-gray-800">
+          Редакция от 04.05.2025
           </p>
         </div>
       </main>
