@@ -54,6 +54,11 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
+                  <a href="/#contact" className="text-blue-100 transition-colors hover:text-white">
+                    Обратная связь
+                  </a>
+                </li>
+                <li>
                   <a
                     href="/privacy"
                     className="text-blue-100 transition-colors hover:text-white"

@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Modal } from '../ui/Modal';
 
-// Типизация пропсов для Header
 interface HeaderProps {
-  openOrderModal: () => void; // Функция, которая ничего не принимает и ничего не возвращает
+  openOrderModal: () => void;
 }
 
 export const Header = ({ openOrderModal }: HeaderProps) => {
@@ -15,7 +14,7 @@ export const Header = ({ openOrderModal }: HeaderProps) => {
     <header className="sticky top-0 z-40 w-full border-b border-gray-100 bg-white/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-20 items-center justify-between px-4">
         <a href="/" className="text-2xl font-bold text-[var(--primary-color)]">
-        BotHubster
+          BotHubster
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -35,10 +34,13 @@ export const Header = ({ openOrderModal }: HeaderProps) => {
             <a href="/#faq" className="transition-smooth hover:text-[var(--primary-color)]">
               FAQ
             </a>
+            <a href="/#contact" className="transition-smooth hover:text-[var(--primary-color)]">
+              Обратная связь
+            </a>
           </nav>
           <button
             className="btn btn-primary"
-            onClick={openOrderModal} // Здесь ты передаешь пропс openOrderModal
+            onClick={openOrderModal}
           >
             Заказать бота
           </button>
@@ -121,13 +123,20 @@ export const Header = ({ openOrderModal }: HeaderProps) => {
               >
                 FAQ
               </a>
+              <a
+                href="/#contact"
+                className="transition-smooth hover:text-[var(--primary-color)]"
+                onClick={() => setIsOpen(false)}
+              >
+                Обратная связь
+              </a>
             </nav>
             <button
               className="btn btn-primary w-full"
               onClick={() => {
                 setIsOpen(false);
                 setTimeout(() => {
-                  openOrderModal(); // <- вызываем внешний модал
+                  openOrderModal();
                 }, 300);
               }}
             >
@@ -136,9 +145,6 @@ export const Header = ({ openOrderModal }: HeaderProps) => {
           </div>
         </motion.div>
       )}
-
-      {/* Order Modal */}
-      {/* Модалка будет рендериться в App.tsx */}
     </header>
   );
 };

@@ -11,6 +11,8 @@ import { FAQ } from '../components/sections/FAQ';
 import { Footer } from '../components/sections/Footer';
 import { Modal } from '../components/ui/Modal';
 import { CookieBanner } from '../components/ui/CookieBanner';
+import { ContactForm } from "../components/ui/ContactForm";
+
 
 export const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,6 +29,7 @@ export const HomePage = () => {
         <Example />
         <Pricing />
         <FAQ />
+        <ContactForm />
       </main>
       <Footer />
 
