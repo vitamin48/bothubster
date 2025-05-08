@@ -27,7 +27,7 @@ export const Example = () => {
             </div>
 
             <a
-              href="https://t.me/bot_exmp"
+              href="https://t.me/BotHubsterDemoBot"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-full bg-white px-6 py-3 font-medium text-[var(--primary-color)] transition-colors hover:bg-blue-50"
