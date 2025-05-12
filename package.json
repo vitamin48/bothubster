@@ -4,19 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://www.bothubster.ru",
-"scripts": {
-  "dev": "vite --host 0.0.0.0",
-  "build": "vite build && npm run copy404",
-  "copy404": "shx cp dist/index.html dist/404.html",
-  "preview": "vite preview --host 0.0.0.0",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-},
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build && npm run copy404",
+    "copy404": "shx cp dist/index.html dist/404.html",
+    "preview": "vite preview --host 0.0.0.0",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
   "dependencies": {
     "framer-motion": "^12.6.3",
     "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.5.2",
     "tailwindcss-animate": "^1.0.7"
